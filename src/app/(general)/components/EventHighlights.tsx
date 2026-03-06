@@ -8,8 +8,7 @@ const storiesData = [
     title: "Amina and Leila, (17 and 19 y.o.)",
     description:
       "Sisters in Uganda brought more than meals — they brought dignity, hope, and daily food to dozens of families living in poverty.",
-    image:
-      "/h6.jpeg",
+    image: "/h6.jpeg",
     tag: "Community",
   },
   {
@@ -17,56 +16,49 @@ const storiesData = [
     title: "David's Community Garden",
     description:
       "Turning abandoned lots into thriving food sources for the neighborhood.",
-    image:
-      "/h7.jpeg",
+    image: "/h7.jpeg",
     tag: "Food",
   },
   {
     id: 3,
     title: "Elena's Mobile Clinic",
     description: "Bringing vital healthcare directly to rural communities.",
-    image:
-      "/h8.jpeg",
+    image: "/h8.jpeg",
     tag: "Health",
   },
   {
     id: 4,
     title: "Marcus and The Tech Bus",
     description: "Bridging the digital divide for thousands of rural students.",
-    image:
-      "h9.jpeg",
+    image: "h9.jpeg",
     tag: "Education",
   },
   {
     id: 5,
     title: "Sarah's Clean Water Initiative",
     description: "Building sustainable wells that power entire villages.",
-    image:
-      "h10.jpeg",
+    image: "h10.jpeg",
     tag: "Water",
   },
   {
     id: 6,
     title: "The Youth Council",
     description: "Empowering the next generation of local policymakers.",
-    image:
-      "/h1.jpeg",
+    image: "/h1.jpeg",
     tag: "Leadership",
   },
   {
     id: 7,
     title: "Maria's Art Therapy",
     description: "Healing trauma through community mural projects.",
-    image:
-      "/h2.jpeg",
+    image: "/h2.jpeg",
     tag: "Arts",
   },
   {
     id: 8,
     title: "James & Solar Solutions",
     description: "Providing affordable, renewable energy to off-grid homes.",
-    image:
-      "/h4.jpeg",
+    image: "/h4.jpeg",
     tag: "Energy",
   },
 ];
@@ -92,7 +84,7 @@ export default function EventHighlights() {
   const [expandedId, setExpandedId] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-  
+
   // 1. ADDED: A ref to track if the user has interacted with the component yet
   const hasInteracted = useRef(false);
 
@@ -107,7 +99,7 @@ export default function EventHighlights() {
   useEffect(() => {
     // 2. UPDATED: Abort the scroll if the user hasn't clicked a card yet
     if (!isMobile || !scrollRef.current || !hasInteracted.current) return;
-    
+
     const container = scrollRef.current;
     const activeEl = container.querySelector("[data-expanded='true']");
     if (activeEl) {
@@ -120,7 +112,11 @@ export default function EventHighlights() {
   }, [expandedId, isMobile]);
 
   return (
-    <section className="eh-root pb-12 px-4 bg-[var(--color-bg-surface)] overflow-hidden flex justify-center">
+    <section
+      id="highlights"
+      className="eh-root pb-12 px-4 bg-[var(--color-bg-surface)] overflow-hidden flex justify-center"
+    >
+      {" "}
       <div className="max-w-7xl w-full">
         {/* Header */}
         <div className="text-center mb-10">
