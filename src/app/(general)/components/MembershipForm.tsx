@@ -90,7 +90,7 @@ const MembershipForm = () => {
         {/* 2. Typography */}
         <div className="relative z-20 text-center mt-8 mb-12 px-2">
           <h2 className="font-antonio font-black uppercase tracking-widest text-[clamp(2.5rem,8vw,4.5rem)] leading-none inline-block text-[var(--color-brand-primary)]">
-            Join Voices United
+            Join Asiwajuboys Movement
           </h2>
           <p className="mt-4 text-[var(--color-text-secondary)] font-medium max-w-lg mx-auto text-sm sm:text-base">
             Step forward and become part of a movement dedicated to renewed hope
