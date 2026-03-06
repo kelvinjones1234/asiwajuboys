@@ -54,7 +54,6 @@ const MembershipForm = () => {
       id="membership"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* ... (Keep your existing visual graphic and typography code exactly the same) ... */}
 
         {/* 1. Visual Graphic Area with SVG Mask */}
         <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] mx-auto flex justify-center items-center">
