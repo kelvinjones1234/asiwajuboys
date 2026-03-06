@@ -313,34 +313,34 @@ export default function Hero() {
         </div> */}
 
         <div className="mb-10 lg:mb-16">
-  <h1
-    className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
-    style={{
-      backgroundImage: "url('heroimg.jpg')",
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      display: "inline-block",
-      transform: "scaleX(1.3) scaleY(1.1)", // Keep the heavy stretch on the parent
-      transformOrigin: "center",
-      WebkitTextStroke: "6px transparent",
-      paintOrder: "stroke fill",
-    }}
-  >
-    ASIWAJU
-    <span
-      className="block mt-1 text-[clamp(2rem,10vw,90px)]" // Slightly tweaked clamp for better mobile fit
-      style={{
-        // REMOVED the transform here to prevent the mobile disappearance bug
-        display: "block",
-      }}
-    >
-      BOYS MOVEMENT
-    </span>
-  </h1>
-</div>
+          <h1
+            className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
+            style={{
+              backgroundImage: "url('heroimg.jpg')",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
+              transform: "scaleX(1.3) scaleY(1.1)", // Keep the heavy stretch on the parent
+              transformOrigin: "center",
+              WebkitTextStroke: "4px transparent",
+              paintOrder: "stroke fill",
+            }}
+          >
+            ASIWAJU
+            <span
+              // ADDED: tracking-[0.15em] for letter spacing
+              className="block mt-1 lg:mt-3 text-[clamp(2rem,10vw,90px)] tracking-[0.1em]"
+              style={{
+                display: "block",
+              }}
+            >
+              BOYS MOVEMENT
+            </span>
+          </h1>
+        </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col py-12 sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none">
