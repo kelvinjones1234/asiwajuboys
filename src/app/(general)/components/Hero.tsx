@@ -316,7 +316,7 @@ export default function Hero() {
           <h1
             className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
             style={{
-  backgroundImage: "url('heroimg3.jpg')",
+  backgroundImage: "url('heroimg4.jpg')",
   // OLD: backgroundPosition: "center",
   // NEW: Keep horizontal center, push vertical down (e.g., to the 80% mark)
   backgroundPosition: "center 40%", 
