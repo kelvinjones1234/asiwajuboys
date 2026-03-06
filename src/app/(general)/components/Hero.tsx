@@ -176,11 +176,6 @@
 //   );
 // }
 
-
-
-
-
-
 "use client"; // Added this because we are now using an onClick event handler
 
 import React from "react";
@@ -295,7 +290,7 @@ export default function Hero() {
         style={{ zIndex: 4 }}
       >
         {/* Image Masked Header */}
-        <div className="mb-10 lg:mb-16">
+        {/* <div className="mb-10 lg:mb-16">
           <h1
             className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
             style={{
@@ -313,8 +308,39 @@ export default function Hero() {
             }}
           >
             ASIWAJU
-            <br />
-            BOYS
+            <span className="text-[clamp(3rem,18vw,220px)]">BOYS MOVEMENT</span>
+          </h1>
+        </div> */}
+
+        <div className="mb-10 lg:mb-16">
+          <h1
+            className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
+            style={{
+              backgroundImage: "url('heroimg.jpg')",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
+              transform: "scaleX(1.3) scaleY(1.1)", // Heavy stretch for ASIWAJU
+              transformOrigin: "center",
+              WebkitTextStroke: "6px transparent",
+              paintOrder: "stroke fill",
+            }}
+          >
+            ASIWAJU
+            <span
+              className="block mt-1 text-[clamp(3rem,14vw,120px)]"
+              style={{
+                // This overrides the parent's scale or adds a new one.
+                // If you want it to look LESS stretched than the top word:
+                transform: "scaleX(0.8) scaleY(0.9)",
+                display: "block",
+              }}
+            >
+              BOYS MOVEMENT
+            </span>
           </h1>
         </div>
 
@@ -328,7 +354,7 @@ export default function Hero() {
           >
             Join Now
           </a>
-          
+
           {/* 3. Changed href to #highlights and added onClick */}
           <a
             href="#highlights"
