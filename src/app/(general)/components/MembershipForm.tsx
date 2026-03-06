@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { useToast } from "@/app/context/ToastContext";
 import { createMembership } from "@/app/action/membership";
 
 const MembershipForm = () => {
-  const router = useRouter(); 
+  const router = useRouter();
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const [isPending, setIsPending] = useState(false);
@@ -30,16 +30,18 @@ const MembershipForm = () => {
 
     if (result.success) {
       toast(result.message || "Registration successful!", "success");
-      
+
       // Save the returned member data to local storage
       if (result.member) {
-        localStorage.setItem("asiwajuMemberProfile", JSON.stringify(result.member));
+        localStorage.setItem(
+          "asiwajuMemberProfile",
+          JSON.stringify(result.member),
+        );
       }
 
       // Redirect to the profile/ID card page
       // NOTE: Change "/profile" to whatever the actual route of your ID card page is
-      router.push("/profile"); 
-      
+      router.push("/profile");
     } else {
       toast(result.error || "Submission failed", "error");
       setIsPending(false); // Only stop loading if there's an error, otherwise let it redirect
@@ -48,12 +50,12 @@ const MembershipForm = () => {
 
   return (
     <section
-      className="relative pt-[2rem] pb-24 px-4 overflow-hidden bg-[var(--color-bg-secondary)]"
+      className="relative pt-[1rem] pb-24 px-4 overflow-hidden bg-[var(--color-bg-secondary)]"
       id="membership"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* ... (Keep your existing visual graphic and typography code exactly the same) ... */}
-        
+
         {/* 1. Visual Graphic Area with SVG Mask */}
         <div className="relative w-full max-w-[600px] h-[300px] sm:h-[400px] mx-auto flex justify-center items-center">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px]">
@@ -70,16 +72,11 @@ const MembershipForm = () => {
           >
             <defs>
               <mask id="slit-mask">
+                {/* The white background that covers the image */}
                 <rect width="100%" height="100%" fill="white" />
-                <ellipse cx="300" cy="200" rx="16" ry="170" fill="black" />
-                <ellipse cx="255" cy="200" rx="14" ry="150" fill="black" />
-                <ellipse cx="345" cy="200" rx="14" ry="150" fill="black" />
-                <ellipse cx="215" cy="200" rx="11" ry="120" fill="black" />
-                <ellipse cx="385" cy="200" rx="11" ry="120" fill="black" />
-                <ellipse cx="180" cy="200" rx="8" ry="85" fill="black" />
-                <ellipse cx="420" cy="200" rx="8" ry="85" fill="black" />
-                <ellipse cx="152" cy="200" rx="4" ry="45" fill="black" />
-                <ellipse cx="448" cy="200" rx="4" ry="45" fill="black" />
+
+                {/* A single perfect circle punching a hole in the center */}
+                <circle cx="300" cy="200" r="180" fill="black" />
               </mask>
             </defs>
             <rect
