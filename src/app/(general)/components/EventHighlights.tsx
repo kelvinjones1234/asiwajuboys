@@ -5,61 +5,42 @@ import React, { useState, useRef, useEffect } from "react";
 const storiesData = [
   {
     id: 1,
-    title: "Amina and Leila, (17 and 19 y.o.)",
-    description:
-      "Sisters in Uganda brought more than meals — they brought dignity, hope, and daily food to dozens of families living in poverty.",
+
     image: "/h6.jpeg",
-    tag: "Community",
   },
   {
     id: 2,
-    title: "David's Community Garden",
-    description:
-      "Turning abandoned lots into thriving food sources for the neighborhood.",
+
     image: "/h7.jpeg",
-    tag: "Food",
   },
   {
     id: 3,
-    title: "Elena's Mobile Clinic",
-    description: "Bringing vital healthcare directly to rural communities.",
+
     image: "/h8.jpeg",
-    tag: "Health",
   },
   {
     id: 4,
-    title: "Marcus and The Tech Bus",
-    description: "Bridging the digital divide for thousands of rural students.",
+
     image: "h9.jpeg",
-    tag: "Education",
   },
   {
     id: 5,
-    title: "Sarah's Clean Water Initiative",
-    description: "Building sustainable wells that power entire villages.",
+
     image: "h10.jpeg",
-    tag: "Water",
   },
   {
     id: 6,
-    title: "The Youth Council",
-    description: "Empowering the next generation of local policymakers.",
+
     image: "/h1.jpeg",
-    tag: "Leadership",
   },
   {
     id: 7,
-    title: "Maria's Art Therapy",
-    description: "Healing trauma through community mural projects.",
     image: "/h2.jpeg",
-    tag: "Arts",
   },
   {
     id: 8,
-    title: "James & Solar Solutions",
-    description: "Providing affordable, renewable energy to off-grid homes.",
+
     image: "/h4.jpeg",
-    tag: "Energy",
   },
 ];
 
@@ -165,7 +146,6 @@ export default function EventHighlights() {
                   {/* Image */}
                   <img
                     src={story.image}
-                    alt={story.title}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
 
@@ -180,29 +160,15 @@ export default function EventHighlights() {
                   />
 
                   {/* Collapsed: rotated label */}
-                  <div className="pill-label text-white/85 text-[11px] font-bold uppercase whitespace-nowrap pointer-events-none">
-                    {story.tag}
-                  </div>
+                  <div className="pill-label text-white/85 text-[11px] font-bold uppercase whitespace-nowrap pointer-events-none"></div>
 
                   {/* Arrow button */}
-                  <button
-                    className="arrow-btn absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-white z-10 border border-white/30"
-                    aria-label="View story"
-                  >
-                    <ArrowIcon />
-                  </button>
 
                   {/* Expanded content */}
                   <div className="card-content absolute bottom-0 left-0 right-0 p-6 text-white z-10">
-                    <div className="inline-flex items-center px-3 py-[3px] rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[11px] font-semibold tracking-wider uppercase mb-2.5">
-                      {story.tag}
-                    </div>
-                    <h3 className="font-bold leading-tight mb-2 text-[clamp(1rem,2.5vw,1.25rem)]">
-                      {story.title}
-                    </h3>
-                    <p className="text-[0.82rem] leading-relaxed text-white/80 line-clamp-3 overflow-hidden">
-                      {story.description}
-                    </p>
+                    <div className="inline-flex items-center px-3 py-[3px] rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-[11px] font-semibold tracking-wider uppercase mb-2.5"></div>
+                    <h3 className="font-bold leading-tight mb-2 text-[clamp(1rem,2.5vw,1.25rem)]"></h3>
+                    <p className="text-[0.82rem] leading-relaxed text-white/80 line-clamp-3 overflow-hidden"></p>
                   </div>
                 </div>
               );
