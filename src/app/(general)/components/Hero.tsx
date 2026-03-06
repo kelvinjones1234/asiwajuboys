@@ -313,36 +313,34 @@ export default function Hero() {
         </div> */}
 
         <div className="mb-10 lg:mb-16">
-          <h1
-            className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
-            style={{
-              backgroundImage: "url('heroimg.jpg')",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              display: "inline-block",
-              transform: "scaleX(1.3) scaleY(1.1)", // Heavy stretch for ASIWAJU
-              transformOrigin: "center",
-              WebkitTextStroke: "6px transparent",
-              paintOrder: "stroke fill",
-            }}
-          >
-            ASIWAJU
-            <span
-              className="block mt-1 text-[clamp(3rem,14vw,120px)]"
-              style={{
-                // This overrides the parent's scale or adds a new one.
-                // If you want it to look LESS stretched than the top word:
-                transform: "scaleX(0.8) scaleY(0.9)",
-                display: "block",
-              }}
-            >
-              BOYS MOVEMENT
-            </span>
-          </h1>
-        </div>
+  <h1
+    className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
+    style={{
+      backgroundImage: "url('heroimg.jpg')",
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      display: "inline-block",
+      transform: "scaleX(1.3) scaleY(1.1)", // Keep the heavy stretch on the parent
+      transformOrigin: "center",
+      WebkitTextStroke: "6px transparent",
+      paintOrder: "stroke fill",
+    }}
+  >
+    ASIWAJU
+    <span
+      className="block mt-1 text-[clamp(2rem,10vw,90px)]" // Slightly tweaked clamp for better mobile fit
+      style={{
+        // REMOVED the transform here to prevent the mobile disappearance bug
+        display: "block",
+      }}
+    >
+      BOYS MOVEMENT
+    </span>
+  </h1>
+</div>
 
         {/* Action Buttons */}
         <div className="flex flex-col py-12 sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none">
