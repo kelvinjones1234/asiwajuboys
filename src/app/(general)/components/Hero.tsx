@@ -316,20 +316,18 @@ export default function Hero() {
           <h1
             className="font-antonio font-black leading-[1] md:leading-[.95] py-[1rem] tracking-wide lg:tracking-tight uppercase inline-block text-[clamp(5rem,18vw,220px)]"
             style={{
-  backgroundImage: "url('heroimg4.jpg')",
-  // OLD: backgroundPosition: "center",
-  // NEW: Keep horizontal center, push vertical down (e.g., to the 80% mark)
-  backgroundPosition: "center 40%", 
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  display: "inline-block",
-  transform: "scaleX(1.3) scaleY(1.1)", 
-  transformOrigin: "center",
-  WebkitTextStroke: "4px transparent",
-  paintOrder: "stroke fill",
-}}
+              backgroundImage: "url('heroimg5.jpg')",
+              backgroundPosition: "center calc(50% - 60px)",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
+              transform: "scaleX(1.3) scaleY(1.1)", // Keep the heavy stretch on the parent
+              transformOrigin: "center",
+              WebkitTextStroke: "4px transparent",
+              paintOrder: "stroke fill",
+            }}
           >
             ASIWAJU
             <span
