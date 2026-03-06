@@ -95,16 +95,23 @@
 
 /* Card expand animation */
 .story-card {
+  /* Tweaked the cubic-bezier and added min-width for smoother flexbox resolving */
   transition:
-    width 550ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 400ms ease; /* Removed border-radius transition */
-  will-change: width;
+    width 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    min-width 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 650ms ease; 
+  will-change: width, min-width;
 }
 
 /* Image zoom */
 .story-card img {
-  transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Slowed down slightly to match the new width expansion */
+  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+
+
+
 .story-card:hover img,
 .story-card[data-expanded='true'] img {
   transform: scale(1.07);

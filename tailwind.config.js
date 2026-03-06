@@ -9,6 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         antonio: ['"Antonio"', 'sans-serif'],
+        syne: ['"Syne"', 'sans-serif'],
+        'dm-sans': ['"DM Sans"', 'sans-serif'],
       },
     },
   },

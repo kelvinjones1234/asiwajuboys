@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Footer from "./components/Footer";
 
 export default function GeneralLayout({
   children,
@@ -15,6 +16,7 @@ export default function GeneralLayout({
       <main className="general-content">
         {children}
       </main>
+      
     </div>
   );
 }

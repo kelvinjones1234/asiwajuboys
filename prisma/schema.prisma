@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb" 
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  STAFF
+}
+
+model Member {
+  // MongoDB requires this specific ID format
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  membershipId String   @unique
+  fullName     String
+  ward         String
+  phoneNumber  String   @unique
+  address      String
+  picture      String   // Cloudinary image URL
+  createdAt    DateTime @default(now())
+  verified     Boolean  @default(false) // Updated field
+  updatedAt    DateTime @updatedAt
+}
+
+
+
+
