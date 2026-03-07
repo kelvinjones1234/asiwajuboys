@@ -45,8 +45,11 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   return (
     <ToastContext.Provider value={{ toast }}>
       {children}
-      {/* Global Toast Container */}
-      <div className="fixed bottom-6 right-6 z-[100] flex flex-col gap-4 pointer-events-none">
+      {/* Global Toast Container: 
+        Mobile: Centered at the bottom with padding 
+        Desktop (sm+): Pinned to the bottom right 
+      */}
+      <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:bottom-6 sm:right-6 z-[9999] flex flex-col gap-3 pointer-events-none items-center sm:items-end">
         {toasts.map((t) => (
           <ToastItem key={t.id} toast={t} onRemove={() => removeToast(t.id)} />
         ))}
@@ -88,9 +91,9 @@ function ToastItem({
   }, []);
 
   const icons = {
-    success: <Check className="w-4 h-4" strokeWidth={2} />,
-    error: <AlertCircle className="w-4 h-4" strokeWidth={2} />,
-    info: <Info className="w-4 h-4" strokeWidth={2} />,
+    success: <Check className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2} />,
+    error: <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2} />,
+    info: <Info className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2} />,
   };
 
   // Styling mapped to the new design system
@@ -115,10 +118,10 @@ function ToastItem({
 
   return (
     <div
-      className={`pointer-events-auto relative overflow-hidden flex items-center justify-between min-w-[320px] max-w-sm p-2 rounded-full border bg-[var(--color-bg-surface)] shadow-lg transition-all duration-500 ease-out transform ${
+      className={`pointer-events-auto relative overflow-hidden flex items-center justify-between w-full max-w-[90vw] sm:max-w-sm sm:w-auto sm:min-w-[320px] p-1.5 sm:p-2 rounded-full border bg-[var(--color-bg-surface)] shadow-lg transition-all duration-500 ease-out transform ${
         isShowing
-          ? "translate-x-0 opacity-100 scale-100"
-          : "translate-x-12 opacity-0 scale-95"
+          ? "translate-y-0 sm:translate-x-0 opacity-100 scale-100"
+          : "translate-y-8 sm:translate-y-0 sm:translate-x-12 opacity-0 scale-95"
       } ${styles[toast.type].container}`}
     >
       {/* Subtle grain texture matching the design system */}
@@ -136,16 +139,16 @@ function ToastItem({
       />
 
       {/* Content Container (Above background texture) */}
-      <div className="relative z-10 flex items-center gap-3 w-full pl-1">
+      <div className="relative z-10 flex items-center gap-2 sm:gap-3 w-full pl-1">
         {/* State Icon in a circular wrapper */}
         <div
-          className={`w-10 h-10 rounded-full shrink-0 flex items-center justify-center shadow-sm ${styles[toast.type].iconBox}`}
+          className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full shrink-0 flex items-center justify-center shadow-sm ${styles[toast.type].iconBox}`}
         >
           {icons[toast.type]}
         </div>
 
         {/* Message Text */}
-        <p className="flex-1 text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] mt-0.5 line-clamp-2 leading-tight">
+        <p className="flex-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[var(--color-text-primary)] mt-0.5 line-clamp-2 leading-tight">
           {toast.message}
         </p>
 
@@ -155,10 +158,10 @@ function ToastItem({
             setIsShowing(false);
             setTimeout(onRemove, 300); // Wait for exit animation
           }}
-          className="w-10 h-10 mr-1 rounded-full border border-[var(--color-border-strong)] flex items-center justify-center shrink-0 hover:bg-[var(--color-bg-primary)] transition-colors bg-white/50 text-[var(--color-text-primary)] focus:outline-none group"
+          className="w-8 h-8 sm:w-10 sm:h-10 mr-1 rounded-full border border-[var(--color-border-strong)] flex items-center justify-center shrink-0 hover:bg-[var(--color-bg-primary)] transition-colors bg-white/50 text-[var(--color-text-primary)] focus:outline-none group"
         >
           <X
-            className="w-4 h-4 group-hover:scale-110 transition-transform"
+            className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform"
             strokeWidth={1.5}
           />
         </button>

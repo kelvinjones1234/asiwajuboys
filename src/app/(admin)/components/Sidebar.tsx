@@ -3,12 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  LayoutDashboard,
-  Users,
-  Settings,
-  LogOut,
-} from "lucide-react";
+import { signOut } from "next-auth/react"; // 1. Import signOut
+import { LayoutDashboard, Users, Settings, LogOut } from "lucide-react";
 import Image from "next/image";
 
 interface SidebarProps {
@@ -22,16 +18,18 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   const navItems = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { name: "Members", href: "/dashboard/members", icon: Users },
-    // { name: "Categories", href: "/dashboard/categories", icon: Layers },
-    // { name: "Products", href: "/dashboard/products", icon: Package },
-    // { name: "Payments", href: "/dashboard/payments", icon: CreditCard },
-    // { name: "Orders", href: "/dashboard/orders", icon: ShoppingCart },
   ];
 
   const handleLinkClick = () => {
     if (isOpen) {
       setIsOpen(false);
     }
+  };
+
+  // 2. Create the logout handler
+  const handleLogout = async () => {
+    // You can specify where to redirect after logout, e.g., the login page
+    await signOut({ callbackUrl: "/auth/login" });
   };
 
   return (
@@ -67,28 +65,21 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
         {/* Content Wrapper (Above background texture) */}
         <div className="relative z-10 flex flex-col h-full">
           {/* Brand Logo Header */}
-          <div className="hidden md:flex items-center p-4 gap-2 text-[var(--color-text-primary)]">
+          <div className="flex items-center px-6 pb-6 pt-4 gap-3 text-[var(--color-text-primary)] shrink-0">
             <Image
-              src="/logo.png"
+              src="/logo2.jpeg"
               alt="Voices United Logo"
-              width={60}
-              height={40}
+              width={48}
+              height={32}
+              className="object-contain"
             />
-            <h2 className="font-antonio text-[1.5rem]"> Asiwajuboys</h2>
+            <h2 className="text-xl text-center leading-[.6] pt-4 font-semibold uppercase">
+              Asiwajuboys <br /> <span className="text-lg">Movement</span>
+            </h2>
           </div>
 
           {/* Navigation Links */}
-          <div className="flex-1 overflow-y-auto no-scrollbar py-6 flex flex-col gap-2 px-4">
-            <div className="flex items-center pb-4 gap-2 text-[var(--color-text-primary)]">
-              <Image
-                src="/logo.png"
-                alt="Voices United Logo"
-                width={60}
-                height={40}
-              />
-              <h2 className="font-antonio text-[1.5rem]"> Asiwajuboys</h2>
-            </div>
-
+          <div className="flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 px-2 py-4">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
@@ -98,14 +89,14 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
                   key={item.name}
                   href={item.href}
                   onClick={handleLinkClick}
-                  className={`flex items-center gap-4 px-5 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300 group ${
+                  className={`flex items-center gap-3 px-4 py-3 text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300 group ${
                     isActive
                       ? "bg-[var(--color-brand-primary)] text-[var(--color-on-brand)] shadow-sm"
                       : "text-[var(--color-text-primary)] hover:bg-[var(--color-brand-light)] border border-transparent hover:border-[var(--color-brand-primary)]"
                   }`}
                 >
                   <Icon
-                    className={`w-4 h-4 ${
+                    className={`w-4 h-4 shrink-0 ${
                       isActive
                         ? "text-[var(--color-on-brand)]"
                         : "text-[var(--color-text-primary)] group-hover:text-[var(--color-brand-primary)]"
@@ -119,21 +110,14 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
           </div>
 
           {/* Bottom Actions */}
-          <div className="p-4 border-t border-[var(--color-border-strong)] space-y-2 bg-white/30 backdrop-blur-sm shrink-0">
-            <Link
-              href="/settings"
-              onClick={handleLinkClick}
-              className="flex items-center gap-4 px-5 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full text-[var(--color-text-primary)] hover:bg-[var(--color-brand-light)] border border-transparent hover:border-[var(--color-brand-primary)] transition-all duration-300 group"
+          <div className="px-2 py-4 border-t border-[var(--color-border-strong)] flex flex-col gap-2 bg-white/30 backdrop-blur-sm shrink-0">
+            {/* 3. Attach handleLogout to onClick */}
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center gap-3 px-4 py-3 text-xs font-bold uppercase tracking-wider rounded-full text-[var(--color-text-primary)] hover:bg-red-50 hover:text-red-600 border border-transparent hover:border-red-200 transition-all duration-300 group"
             >
-              <Settings
-                className="w-4 h-4 text-[var(--color-text-primary)] group-hover:text-[var(--color-brand-primary)]"
-                strokeWidth={1.5}
-              />
-              <span className="mt-0.5">Settings</span>
-            </Link>
-            <button className="w-full flex items-center gap-4 px-5 py-3.5 text-xs font-bold uppercase tracking-wider rounded-full text-[var(--color-text-primary)] hover:bg-red-50 hover:text-red-600 border border-transparent hover:border-red-200 transition-all duration-300 group">
               <LogOut
-                className="w-4 h-4 text-[var(--color-text-primary)] group-hover:text-red-600"
+                className="w-4 h-4 shrink-0 text-[var(--color-text-primary)] group-hover:text-red-600"
                 strokeWidth={1.5}
               />
               <span className="mt-0.5">Log Out</span>

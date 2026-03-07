@@ -16,7 +16,7 @@ const MembershipForm = () => {
     const file = e.target.files?.[0];
     if (file) {
       setFileName(file.name);
-    } else {
+    } else { 
       setFileName("Upload Profile Picture...");
     }
   };

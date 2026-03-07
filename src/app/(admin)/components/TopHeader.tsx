@@ -36,7 +36,7 @@ export default function TopHeader({ setSidebarOpen }: TopHeaderProps) {
 
           <div className="hidden sm:block">
             {/* Typography matching Hero header (Antonio font, uppercase, tight tracking) */}
-            <h2 className="font-antonio font-black text-xl md:text-2xl tracking-wide uppercase text-[var(--color-text-primary)]">
+            <h2 className="font-black text-xl md:text-2xl uppercase text-[var(--color-text-primary)]">
               Welcome to Admin Dashboard
             </h2>
           </div>
@@ -44,15 +44,9 @@ export default function TopHeader({ setSidebarOpen }: TopHeaderProps) {
 
         {/* Right side: Actions & Profile */}
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             {/* Notification Button - Styled like Hero Arrow Button */}
-            <button className="w-10 h-10 rounded-full border border-[var(--color-border-strong)] flex items-center justify-center shrink-0 hover:bg-[var(--color-bg-primary)] transition-colors bg-white/50 relative text-[var(--color-text-primary)] group">
-              <Bell
-                className="w-4 h-4 group-hover:scale-110 transition-transform"
-                strokeWidth={1.5}
-              />
-              <span className="absolute top-2 right-2 w-2 h-2 bg-[var(--color-brand-primary)] rounded-full border border-[var(--color-bg-surface)]"></span>
-            </button>
+            <h2 className="px-3 py-2 border rounded-xl text-sm">View Site</h2>
           </div>
         </div>
       </div>
