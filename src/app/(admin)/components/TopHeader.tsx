@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Menu, Bell } from "lucide-react";
+import { Menu, Bell, Link } from "lucide-react";
 
 interface TopHeaderProps {
   setSidebarOpen: (isOpen: boolean) => void;
@@ -46,28 +46,12 @@ export default function TopHeader({ setSidebarOpen }: TopHeaderProps) {
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">
           <div className="flex items-center">
             {/* Notification Button - Styled like Hero Arrow Button */}
-            <h2 className="px-3 py-2 border rounded-xl text-sm">View Site</h2>
+            <Link href="/" className="px-3 py-2 border rounded-xl text-sm">
+              View Site
+            </Link>
           </div>
         </div>
       </div>
     </header>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
