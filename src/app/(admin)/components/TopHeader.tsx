@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Menu, Bell, Link } from "lucide-react";
+import { Menu } from "lucide-react";
+import Link from "next/link";
 
 interface TopHeaderProps {
   setSidebarOpen: (isOpen: boolean) => void;
