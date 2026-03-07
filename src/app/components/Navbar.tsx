@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -65,7 +66,12 @@ export default function Navbar() {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
                 </svg>
               </button>
 
@@ -84,17 +90,27 @@ export default function Navbar() {
 
             {/* DESKTOP VIEW */}
             <div className="hidden md:flex items-center gap-2 text-[var(--color-text-primary)]">
-              <Image src="/logo2.jpeg" alt="Voices United Logo" width={60} height={40} />
+              <Image
+                src="/logo2.jpeg"
+                alt="Voices United Logo"
+                width={60}
+                height={40}
+              />
             </div>
 
             <div className="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-widest text-[var(--color-text-secondary)]">
-              <a
+              <Link
+                href="/"
                 className="hover:text-[var(--color-brand-primary)] transition-colors"
-                href="#hero"
-                onClick={handleSmoothScroll}
               >
                 Home
-              </a>
+              </Link>
+              <Link
+                href="/profile"
+                className="hover:text-[var(--color-brand-primary)] transition-colors"
+              >
+                Profile
+              </Link>
               <a
                 className="hover:text-[var(--color-brand-primary)] transition-colors"
                 href="#highlights"
@@ -117,7 +133,9 @@ export default function Navbar() {
       {/* MOBILE SLIDE-OUT MENU */}
       <div
         className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 backdrop-blur-sm md:hidden ${
-          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       ></div>
@@ -129,26 +147,49 @@ export default function Navbar() {
       >
         <div className="flex items-center justify-between p-6 border-b border-[var(--color-border-default)]">
           <div className="flex items-center gap-2 text-[var(--color-text-primary)]">
-            <Image src="/logo2.jpeg" alt="Voices United Logo" width={40} height={40} />
+            <Image
+              src="/logo2.jpeg"
+              alt="Voices United Logo"
+              width={40}
+              height={40}
+            />
           </div>
           <button
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-10 h-10 rounded-full bg-[var(--color-bg-secondary)] flex items-center justify-center hover:bg-[var(--color-border-default)] transition-colors border border-[var(--color-border-default)]"
           >
-            <svg className="w-5 h-5 text-[var(--color-text-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            <svg
+              className="w-5 h-5 text-[var(--color-text-primary)]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
             </svg>
           </button>
         </div>
 
         <div className="flex flex-col p-6 space-y-6 text-sm font-bold uppercase tracking-widest text-[var(--color-text-secondary)]">
-          <a
-            href="#hero"
-            onClick={handleSmoothScroll}
+          {/* Added onClick handlers here */}
+          <Link
+            href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="hover:text-[var(--color-brand-primary)] transition-colors"
           >
             Home
-          </a>
+          </Link>
+          <Link
+            href="/profile"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="hover:text-[var(--color-brand-primary)] transition-colors"
+          >
+            Profile
+          </Link>
           <a
             href="#highlights"
             onClick={handleSmoothScroll}
