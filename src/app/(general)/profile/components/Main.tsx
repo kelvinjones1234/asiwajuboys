@@ -179,6 +179,10 @@ const Main = () => {
 
       {member && (
         <div className="w-full max-w-md mt-[3rem] flex flex-col items-center animate-fade-in-up">
+          <p className="text-center py-2 max-w-[320px]">
+            Please retain your Membership ID for future access to your digital
+            card.
+          </p>
           <div className="w-full overflow-x-auto pb-4 flex justify-center no-scrollbar">
             {/* ID Card Wrapper */}
             <div
