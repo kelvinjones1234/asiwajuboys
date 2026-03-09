@@ -139,6 +139,7 @@ export default function Hero() {
               BOYS MOVEMENT
             </span>
           </h1>
+          <p className="italic text-xs md:text-sm lg:py-2 text-[var(--color-brand-primary)]">Connecting the grass roots with impact...</p>
         </div>
 
         {/* Action Buttons */}

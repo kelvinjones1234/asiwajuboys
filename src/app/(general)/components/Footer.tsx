@@ -36,14 +36,11 @@ export default function Footer() {
                   hello@asiwajuboys.org
                 </a>
               </p>
-              <p>
-                <a
-                  href="tel:+1234567890"
+                <p
                   className="hover:text-white transition-colors duration-200"
                 >
                   +2349074433333
-                </a>
-              </p>
+                </p>
             </div>
           </div> 
         </div>
