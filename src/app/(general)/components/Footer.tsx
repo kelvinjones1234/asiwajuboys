@@ -41,7 +41,7 @@ export default function Footer() {
                   href="tel:+1234567890"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  +234 814 1772 672
+                  +2349074433333
                 </a>
               </p>
             </div>
@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Bottom Bar: Legal & Copyright */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>
-            &copy; {currentYear} asiwajuboys. All rights reserved.
+            &copy; {currentYear} asiwajuboys movement. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a
