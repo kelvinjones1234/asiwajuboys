@@ -77,7 +77,7 @@ const MembershipForm = () => {
                 {/* A single perfect circle punching a hole in the center */}
                 <circle cx="300" cy="200" r="180" fill="black" />
               </mask>
-            </defs>
+            </defs> 
             <rect
               width="100%"
               height="100%"
